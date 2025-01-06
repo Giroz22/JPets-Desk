@@ -7,27 +7,11 @@ import { StoreEntity } from "../models/store.entity";
 export class StoreService {
   constructor() {}
 
-  async getStore(): Promise<StoreEntity | null> {
+  async getStore(): Promise<StoreEntity> {
     try {
-      // Validar si electronAPI está disponible
-      if (
-        !(window as any).electronAPI ||
-        !(window as any).electronAPI.getStore
-      ) {
-        console.error("electronAPI o el método getStore no están disponibles.");
-        return null;
-      }
-
-      // Llamar al método expuesto por Electron
-      const store = (await (
-        window as any
-      ).electronAPI.getStore()) as StoreEntity;
-
-      console.log("Store obtenida:", store);
-      return store;
+      return (await (window as any).electronAPI.getStore()) as StoreEntity;
     } catch (error) {
-      console.error("Error al obtener la tienda:", error);
-      return null;
+      throw Error("Error al obtener la tienda");
     }
   }
 }

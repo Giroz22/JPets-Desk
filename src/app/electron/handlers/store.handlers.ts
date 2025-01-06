@@ -1,8 +1,11 @@
 import { ipcMain } from "electron";
-import { AppDataSource } from "../config/dataSource.config";
 import { StoreEntity } from "../../models/store.entity";
+import { Repository } from "typeorm";
+import { DataSourceConnection } from "../config/DataSourceConnection";
 
-export const repository = AppDataSource.getRepository(StoreEntity);
+const appDataSource = new DataSourceConnection();
+const repository: Repository<StoreEntity> =
+  appDataSource.getRepository(StoreEntity);
 
 ipcMain.handle("get-store", async () => {
   let store: StoreEntity | null;

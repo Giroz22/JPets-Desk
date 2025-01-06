@@ -14,9 +14,7 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit() {
     this.service.getStore().then((data) => {
-      if (data) {
-        this.nameStore = data.name;
-      }
+      this.nameStore = data.name;
     });
   }
 }

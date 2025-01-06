@@ -1,7 +1,8 @@
-// src/main.ts
 import { app, BrowserWindow, ipcMain } from "electron";
 import path from "node:path";
-import { repository } from "./app/electron/service/store.service";
+
+//Importa todos los handlers
+import "./app/electron/controller/handlers.controller";
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -13,8 +14,6 @@ function createWindow() {
       nodeIntegration: false,
     },
   });
-
-  repository;
 
   win.loadFile(path.join(__dirname, "/jpets-desk/browser/index.html"));
 }
