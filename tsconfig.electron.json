@@ -11,6 +11,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/main.electron.ts"],
+  "include": ["src/electron.ts", "src/preload.ts"],
   "exclude": ["node_modules"]
 }
