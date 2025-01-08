@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { StoreService } from "../../services/store.service";
+import { PetsComponent } from "../pets/pets.component";
 
 @Component({
   selector: "home-page",
-  imports: [],
+  imports: [PetsComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
 })

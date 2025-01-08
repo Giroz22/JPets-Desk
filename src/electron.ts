@@ -1,8 +1,10 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import path from "node:path";
-
-//Importa todos los handlers
-import "./app/electron/controller/handlers.controller";
+import {
+  closeConnection,
+  openConnection,
+} from "./app/electron/config/DataSourceConnection";
+import { registerHandlers } from "./app/electron/controller/handlers.controller";
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -15,16 +17,20 @@ function createWindow() {
     },
   });
 
-  win.loadFile(path.join(__dirname, "/jpets-desk/browser/index.html"));
+  win.loadURL("http://localhost:4200/");
+  //win.loadFile(path.join(__dirname, "/jpets-desk/browser/index.html"));
 }
 
 app.whenReady().then(() => {
+  openConnection();
+  registerHandlers();
   createWindow();
 });
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
+    closeConnection();
   }
 });
 

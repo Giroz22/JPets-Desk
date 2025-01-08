@@ -1,0 +1,32 @@
+@if (!data.length) {
+<div class="">No hay datos</div>
+}@else {
+<table class="table table-striped">
+  <thead>
+    <tr>
+      @for (attribute of listAttributes; track $index) {
+      <th scope="col">{{ attribute }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (obj of data; track $index) {
+    <tr>
+      @for (attribute of listAttributes; track $index) {
+
+      <td>{{ obj[attribute] }}</td>
+      }
+      <td>
+        <button class="btn btn-primary" (click)="editar(obj.id)">Editar</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="eliminar(obj.id)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+}
