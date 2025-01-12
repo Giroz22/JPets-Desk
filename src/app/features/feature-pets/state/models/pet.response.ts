@@ -1,6 +1,6 @@
 import { AutoMap } from "@automapper/classes";
 
-export class PetResponse {
+export class PetsResponse {
   @AutoMap()
   id!: number;
 

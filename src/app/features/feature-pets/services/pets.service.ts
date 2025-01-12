@@ -1,33 +1,36 @@
 import { Injectable } from "@angular/core";
-import { PetResponse } from "../state/models/pet.response";
+import { PetsResponse } from "../state/models/pet.response";
 import { PetRequest } from "../state/models/pet.request";
+import { from, Observable } from "rxjs";
+import { PetResponse } from "../../../../electron/models/dtos/pet.response";
 
 @Injectable({
   providedIn: "root",
 })
-export class PetsService
-  implements
-    IGetAll<PetResponse>,
-    IGetById<PetResponse, number>,
-    ICreate<PetRequest, PetResponse>,
-    IUpdate<PetRequest, PetResponse, number>,
-    IDelete<PetResponse, number>
-{
-  constructor() {}
-
-  async getAll(): Promise<PetResponse[]> {
-    return await (window as any).electronAPI.getAllPets();
+export class PetsService {
+  public getAll(): Observable<PetsResponse[]> {
+    return from(
+      (window as any).electronAPI.getAllPets() as Promise<PetResponse[]>
+    );
   }
-  async getById(id: number): Promise<PetResponse> {
-    return await (window as any).electronAPI.getPetbyId(id);
+  getById(id: number): Observable<PetsResponse> {
+    return from(
+      (window as any).electronAPI.getPetbyId(id) as Promise<PetResponse>
+    );
   }
-  async create(entity: PetRequest): Promise<PetResponse> {
-    return await (window as any).electronAPI.createPet(entity);
+  create(entity: PetRequest): Observable<PetsResponse> {
+    return from(
+      (window as any).electronAPI.createPet(entity) as Promise<PetResponse>
+    );
   }
-  async update(id: number, entity: PetRequest): Promise<PetResponse> {
-    return await (window as any).electronAPI.updatePet(id, entity);
+  update(id: number, entity: PetRequest): Observable<PetsResponse> {
+    return from(
+      (window as any).electronAPI.updatePet(id, entity) as Promise<PetsResponse>
+    );
   }
-  async delete(id: any): Promise<PetResponse> {
-    return await (window as any).electronAPI.deletePet(id);
+  delete(id: any): Observable<PetsResponse> {
+    return from(
+      (window as any).electronAPI.deletePet(id) as Promise<PetResponse>
+    );
   }
 }

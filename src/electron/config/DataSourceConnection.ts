@@ -8,7 +8,7 @@ let appDataSource: DataSource;
 export function openConnection() {
   appDataSource = new DataSource({
     type: "sqlite",
-    database: "src/app/electron/database/jpets.sql",
+    database: "src/electron/database/jpets.sql",
     entities: [StoreEntity, PetEntity],
     synchronize: true,
   });

@@ -1,5 +1,8 @@
-<p>pets works!</p>
+<p>pets works! num pets {{ pets.length }}</p>
 
+@if (!showTable) {
+<div class="">No hay datos</div>
+}@else {
 <table-data [data]="pets" [nameClass]="'Mascota'" [eventEdit]="editPet" />
-
+}
 <button (click)="crear()">Crear</button>

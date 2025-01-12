@@ -8,24 +8,18 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class TableDataComponent implements OnInit {
   @Input() nameClass: string = "";
-  @Input() data!: Promise<any[]>;
+  @Input() data!: any[];
   @Input() eventEdit!: (id: any) => void;
   listAttributes: string[] = [];
   listObjects: any[] = [];
-  showTable: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.data.then((data) => {
-      if (data.length) {
-        this.listAttributes = Object.keys(data[0]);
-        this.listObjects = data;
-        this.showTable = true;
-      } else {
-        this.showTable = false;
-      }
-    });
+    if (this.data.length) {
+      this.listAttributes = Object.keys(this.data[0]);
+      this.listObjects = this.data;
+    }
   }
 
   // delete(id: any) {
