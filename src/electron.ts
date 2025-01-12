@@ -1,10 +1,11 @@
 import { app, BrowserWindow } from "electron";
 import path from "node:path";
+
 import {
   closeConnection,
   openConnection,
-} from "./app/electron/config/DataSourceConnection";
-import { registerHandlers } from "./app/electron/controller/handlers.controller";
+} from "./electron/config/DataSourceConnection";
+import { registerHandlers } from "./electron/controller/handlers.controller";
 
 function createWindow() {
   const win = new BrowserWindow({

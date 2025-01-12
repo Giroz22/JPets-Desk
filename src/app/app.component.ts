@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { HomeComponent } from "./view/pages/home/home.component";
+import { PetsComponent } from "./features/feature-pets/pages/main/pets.component";
 
 @Component({
   selector: "app-root",
-  imports: [HomeComponent],
+  imports: [PetsComponent],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })

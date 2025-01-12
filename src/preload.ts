@@ -1,4 +1,4 @@
-import { PetEntity } from "./app/models/pet.entity";
+import { PetEntity } from "./electron/models/pet.entity";
 
 const { contextBridge, ipcRenderer } = require("electron");
 
