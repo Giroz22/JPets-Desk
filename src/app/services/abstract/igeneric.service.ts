@@ -1,7 +1,7 @@
-interface IGenericService<E> {
-  getAll(): Promise<E[]>;
-  getById(id: any): Promise<E>;
-  create(entity: E): Promise<E>;
-  update(id: any, entity: E): Promise<E>;
-  delete(id: any): Promise<void>;
+interface IGenericService<RQ, RS> {
+  getAll(): Promise<RS[]>;
+  getById(id: any): Promise<RS>;
+  create(entity: RQ): Promise<RS>;
+  update(id: any, entity: RQ): Promise<RS>;
+  delete(id: any): Promise<RS>;
 }

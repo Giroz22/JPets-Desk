@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { StoreService } from "../../services/store.service";
 import { PetsComponent } from "../pets/pets.component";
+import { StoreService } from "../../../services/store.service";
 
 @Component({
   selector: "home-page",

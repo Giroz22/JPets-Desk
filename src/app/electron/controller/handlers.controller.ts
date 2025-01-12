@@ -1,4 +1,4 @@
 export function registerHandlers() {
-  require("../handlers/store.handlers");
-  require("../handlers/pets.handlers");
+  import("../handlers/store.handlers");
+  import("../handlers/pets.handlers");
 }

@@ -1,4 +1,4 @@
-@if (!data.length) {
+@if (!showTable) {
 <div class="">No hay datos</div>
 }@else {
 <table class="table table-striped">
@@ -10,23 +10,25 @@
     </tr>
   </thead>
   <tbody>
-    @for (obj of data; track $index) {
+    @for (obj of listObjects; track $index) {
     <tr>
       @for (attribute of listAttributes; track $index) {
 
       <td>{{ obj[attribute] }}</td>
       }
       <td>
-        <button class="btn btn-primary" (click)="editar(obj.id)">Editar</button>
-      </td>
-      <td>
-        <button class="btn btn-danger" (click)="eliminar(obj.id)">
-          Eliminar
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="eventEdit(obj.id)"
+        >
+          Editar
         </button>
       </td>
     </tr>
     }
   </tbody>
 </table>
-
 }
