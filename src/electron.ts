@@ -7,6 +7,8 @@ import {
 } from "./electron/config/DataSourceConnection";
 import { registerHandlers } from "./electron/controller/handlers.controller";
 
+app.disableHardwareAcceleration();
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,

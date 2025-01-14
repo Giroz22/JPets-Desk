@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { PetsComponent } from "./features/feature-pets/pages/main/pets.component";
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { NavComponent } from "./shared/components/nav/nav.component";
 
 @Component({
   selector: "app-root",
-  imports: [PetsComponent],
+  imports: [RouterOutlet, NavComponent],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })

@@ -1,0 +1,39 @@
+<div>
+  <button class="btn btn-secondary" (click)="back()">Volver</button>
+
+  <fieldset [disabled]="isEditable ? '' : 'disabled'">
+    <legend>Informacion de {{ petSelected.name }}</legend>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Chispas"
+        [value]="petSelected.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Dueño</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Juan Carlos Hurtado"
+        [value]="petSelected.ownerName"
+      />
+    </div>
+  </fieldset>
+
+  @if (!isEditable) {
+  <div>
+    <button class="btn btn-primary" (click)="edit()">Editar</button>
+    <button class="btn btn-danger" (click)="delete()">Eliminar</button>
+  </div>
+  }@else{
+  <div>
+    <button class="btn btn-success" (click)="update()">Actualizar</button>
+    <button class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+  </div>
+  }
+</div>

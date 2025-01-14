@@ -1,9 +1,21 @@
 import { createReducer, on } from "@ngrx/store";
 import { PetsResponse } from "../models/pet.response";
-import { setAll } from "../actions/pets.actions";
+import { setAll, setPet } from "../actions/pets.actions";
 
-export const initialState: PetsResponse[] = [];
+export interface PetsState {
+  pets: PetsResponse[];
+  pet: PetsResponse;
+}
+
+export const initialState: PetsState = { pets: [], pet: new PetsResponse() };
 export const petsReducer = createReducer(
   initialState,
-  on(setAll, (state, { pets }) => [...pets])
+  on(setAll, (state, { newPets }) => ({
+    pets: [...newPets],
+    pet: state.pet,
+  })),
+  on(setPet, (state, { newPet }) => ({
+    pets: state.pets,
+    pet: newPet,
+  }))
 );
