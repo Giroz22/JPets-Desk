@@ -6,6 +6,7 @@ import { errorAlert } from "../utils/alerts";
 import { StoreService } from "./store.service";
 import { PetResponse } from "../models/dtos/pet.response";
 import { PetRequest } from "../models/dtos/pet.request";
+import { Pagination } from "../models/pagination";
 
 export class PetsService {
   repository: Repository<PetEntity> = getRepository(PetEntity);
@@ -16,6 +17,29 @@ export class PetsService {
     return (await this.repository.find()).map((petEntity) =>
       this.mapper.petToResponse(petEntity)
     );
+  }
+  public async getAllPetsPagination(
+    page: number,
+    size: number
+  ): Promise<Pagination> {
+    const numpets = await this.repository.count();
+
+    const totalPages = Math.round(numpets / size);
+
+    if (page > totalPages || page < 1) page = 1;
+    if (size < 1) page = 5;
+
+    const skipPets = size * (page - 1);
+
+    const pets = (
+      await this.repository
+        .createQueryBuilder()
+        .take(size)
+        .skip(skipPets)
+        .getMany()
+    ).map((petEntity) => this.mapper.petToResponse(petEntity));
+
+    return { data: pets, totalPages };
   }
   public async getPetbyId(petId: any): Promise<PetResponse | null> {
     const petFound = await this.repository.findOne({

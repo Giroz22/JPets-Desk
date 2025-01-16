@@ -6,7 +6,4 @@ export class PetRequest {
 
   @AutoMap()
   ownerName: string = "";
-
-  @AutoMap()
-  id_store!: any;
 }

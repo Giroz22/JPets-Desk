@@ -1,39 +1,56 @@
-<div>
-  <button class="btn btn-secondary" (click)="back()">Volver</button>
+<form (ngSubmit)="submit()">
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="backHome()"
+  ></button>
 
-  <fieldset [disabled]="isEditable ? '' : 'disabled'">
-    <legend>Informacion de {{ petSelected.name }}</legend>
+  <fieldset [disabled]="petSelected.action !== 'EDIT' ? '' : 'disabled'">
+    <legend>Informacion de {{ petSelected.pet.name }}</legend>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Nombre</label>
       <input
+        [(ngModel)]="petForm.name"
+        name="name"
         type="text"
         class="form-control"
         id="formGroupExampleInput"
-        placeholder="Chispas"
-        [value]="petSelected.name"
+        placeholder="Ej: Chispas"
+        required
       />
     </div>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Dueño</label>
       <input
+        [(ngModel)]="petForm.ownerName"
+        name="ownerName"
         type="text"
         class="form-control"
         id="formGroupExampleInput"
-        placeholder="Juan Carlos Hurtado"
-        [value]="petSelected.ownerName"
+        placeholder="Ej: Juan Carlos Hurtado"
+        required
       />
     </div>
   </fieldset>
 
-  @if (!isEditable) {
+  @switch (petSelected.action) { @case ("CREATE") {
+  <button class="btn btn-success" type="submit">Crear</button>
+  } @case ("EDIT") {
   <div>
-    <button class="btn btn-primary" (click)="edit()">Editar</button>
-    <button class="btn btn-danger" (click)="delete()">Eliminar</button>
+    <button class="btn btn-primary" (click)="setActionUpdate()" type="button">
+      Editar
+    </button>
+    <button class="btn btn-danger" (click)="delete()" type="button">
+      Eliminar
+    </button>
   </div>
-  }@else{
+  } @case ("UPDATE") {
   <div>
-    <button class="btn btn-success" (click)="update()">Actualizar</button>
-    <button class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+    <button class="btn btn-success" type="submit">Actualizar</button>
+    <button class="btn btn-secondary" (click)="setActionEdit()" type="button">
+      Cancelar
+    </button>
   </div>
-  }
-</div>
+  } }
+</form>

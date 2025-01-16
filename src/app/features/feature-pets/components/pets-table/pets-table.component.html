@@ -17,17 +17,11 @@
       <td>{{ pet.name }}</td>
       <td>{{ pet.ownerName }}</td>
       <td>
-        <a
-          [routerLink]="['/manager']"
-          class="btn btn-primary"
-          (click)="showDetails(pet.id)"
-        >
-          Detalles
-        </a>
+        <a class="btn btn-primary" (click)="showDetails(pet.id)"> Detalles </a>
       </td>
     </tr>
     }
   </tbody>
 </table>
-
+<pets-navigation />
 }

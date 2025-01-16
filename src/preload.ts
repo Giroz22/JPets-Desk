@@ -5,6 +5,8 @@ const { contextBridge, ipcRenderer } = require("electron");
 const api = {
   getStore: () => ipcRenderer.invoke("get-store"),
   getAllPets: () => ipcRenderer.invoke("getAllPets"),
+  getAllPetsPagination: (numPage: number, size: number) =>
+    ipcRenderer.invoke("getAllPetsPagination", numPage, size),
   getPetbyId: (id: any) => ipcRenderer.invoke("getPetbyId", id),
   createPet: (entity: PetEntity) => ipcRenderer.invoke("createPet", entity),
   updatePet: (id: any, entity: PetEntity) =>

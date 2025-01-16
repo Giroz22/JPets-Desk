@@ -4,6 +4,9 @@ import { PetsService } from "../services/pet.service";
 const service: PetsService = new PetsService();
 
 ipcMain.handle("getAllPets", () => service.getAllPets());
+ipcMain.handle("getAllPetsPagination", (event, numPage, size) =>
+  service.getAllPetsPagination(numPage, size)
+);
 
 ipcMain.handle("getPetbyId", (event, petId) => service.getPetbyId(petId));
 

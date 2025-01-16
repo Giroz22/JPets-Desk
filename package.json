@@ -23,6 +23,7 @@
     "@automapper/core": "^8.8.1",
     "@ngrx/effects": "^19.0.0",
     "@ngrx/store": "^19.0.0",
+    "@ngrx/store-devtools": "^19.0.0",
     "bootstrap": "^5.3.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",

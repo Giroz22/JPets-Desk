@@ -2,14 +2,16 @@ import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { PetsState } from "../../state/reducers/pets.reducer";
 import { PetsResponse } from "../../state/models/pet.response";
-import { getAll, setPetId } from "../../state/actions/pets.actions";
-import { Router, RouterLink } from "@angular/router";
+import { getAllPagination, setPetId } from "../../state/actions/pets.actions";
+import { Router } from "@angular/router";
+import { ActionPet } from "../../pages/manager/manager.component";
+import { PetsNavigationComponent } from "../pets-navigation/pets-navigation.component";
 
 @Component({
   selector: "pets-table",
-  imports: [RouterLink],
   templateUrl: "./pets-table.component.html",
   styleUrl: "./pets-table.component.scss",
+  imports: [PetsNavigationComponent],
 })
 export class PetsTableComponent {
   pets: PetsResponse[] = [];
@@ -26,11 +28,11 @@ export class PetsTableComponent {
   }
 
   ngOnInit() {
-    this.store.dispatch(getAll());
+    this.store.dispatch(getAllPagination({ numPage: 1, size: 5 }));
   }
 
   showDetails(id: number) {
-    this.store.dispatch(setPetId({ petId: id }));
-    // this.router.navigate([""]);
+    this.router.navigate(["/manager"]);
+    this.store.dispatch(setPetId({ petId: id, action: ActionPet.EDIT }));
   }
 }
