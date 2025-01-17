@@ -4,7 +4,7 @@
 # Compiled output
 /dist/
 /build/
-/src/electron/database
+/src/electron/database/
 
 # Angular CLI generated files
 .angular/
