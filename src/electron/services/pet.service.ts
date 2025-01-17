@@ -7,6 +7,7 @@ import { StoreService } from "./store.service";
 import { PetResponse } from "../models/dtos/pet.response";
 import { PetRequest } from "../models/dtos/pet.request";
 import { Pagination } from "../models/pagination";
+import { Utils } from "../utils/utils";
 
 export class PetsService {
   repository: Repository<PetEntity> = getRepository(PetEntity);
@@ -51,6 +52,7 @@ export class PetsService {
     try {
       const pet: PetEntity = this.mapper.requestToPet(petRequest);
       pet.store = await StoreService.getStore();
+      //pet.image = Utils.saveImage(pet.image, "Pets", `${pet.name}-img`);
 
       const newPet: PetEntity = await this.repository.save(pet);
 

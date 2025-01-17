@@ -23,6 +23,14 @@ export class PetEntity {
   @AutoMap()
   ownerName: string = "";
 
+  @Column({ type: "varchar", length: 100 })
+  @AutoMap()
+  tel: string = "";
+
+  @Column({ type: "blob", nullable: true })
+  @AutoMap()
+  image!: string;
+
   @ManyToOne(() => StoreEntity, (store) => store.pets)
   @JoinColumn()
   store!: StoreEntity;

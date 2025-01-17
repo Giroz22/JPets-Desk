@@ -8,5 +8,8 @@ export class PetRequest {
   ownerName: string = "";
 
   @AutoMap()
-  id_store!: any;
+  tel: string = "";
+
+  @AutoMap()
+  image!: string;
 }

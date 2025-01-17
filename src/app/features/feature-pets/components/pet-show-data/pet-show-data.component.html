@@ -1,0 +1,5 @@
+<div class="d-flex flex-column gap-1 overflow-y-auto pe-2" style="height: 100%">
+  @for (pet of pets; track $index) {
+  <pet-row-data [pet]="pet" />
+  }
+</div>

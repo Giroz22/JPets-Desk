@@ -1,7 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { PetsResponse } from "../models/pet.response";
-import { ActionPet } from "../../pages/manager/manager.component";
-import { PetSelected } from "../reducers/pets.reducer";
+import { ActionPet, PetSelected } from "../reducers/pets.reducer";
 import { PetRequest } from "../models/pet.request";
 import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
 

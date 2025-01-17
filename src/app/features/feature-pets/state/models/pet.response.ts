@@ -9,4 +9,10 @@ export class PetsResponse {
 
   @AutoMap()
   ownerName: string = "";
+
+  @AutoMap()
+  tel: string = "";
+
+  @AutoMap()
+  image!: string;
 }

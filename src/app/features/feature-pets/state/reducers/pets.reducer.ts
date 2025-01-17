@@ -11,7 +11,6 @@ import {
   setPagination,
   setTotalPage,
 } from "../actions/pets.actions";
-import { ActionPet } from "../../pages/manager/manager.component";
 import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
 
 export interface PetsState {
@@ -23,10 +22,14 @@ export interface PetsState {
     totalPages: number;
   };
 }
-
 export interface PetSelected {
   pet: PetsResponse;
   action: ActionPet;
+}
+export enum ActionPet {
+  EDIT = "EDIT",
+  CREATE = "CREATE",
+  UPDATE = "UPDATE",
 }
 
 export const initialState: PetsState = {

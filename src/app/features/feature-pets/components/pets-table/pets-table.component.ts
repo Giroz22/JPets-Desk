@@ -1,10 +1,9 @@
 import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { PetsState } from "../../state/reducers/pets.reducer";
+import { ActionPet, PetsState } from "../../state/reducers/pets.reducer";
 import { PetsResponse } from "../../state/models/pet.response";
 import { getAllPagination, setPetId } from "../../state/actions/pets.actions";
 import { Router } from "@angular/router";
-import { ActionPet } from "../../pages/manager/manager.component";
 import { PetsNavigationComponent } from "../pets-navigation/pets-navigation.component";
 
 @Component({
