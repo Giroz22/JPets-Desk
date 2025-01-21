@@ -1,0 +1,18 @@
+@if (data.length < 4 ) {
+<div class="alert alert-warning" role="alert">
+  El objeto no cuenta con suficientes elementos
+</div>
+}@else {
+<button class="row-data">
+  <app-avatar [src]="data[1]" [alt]="data[2] + ' avatar'" />
+  <div class="info-detail">
+    <div class="primary-text">
+      <span>{{ data[2] | titlecase }}</span>
+      <span>{{ data[3] | titlecase }}</span>
+    </div>
+    <span>{{ data[4] | titlecase }}</span>
+    <span>{{ data[5] | titlecase }}</span>
+    <app-circle-button />
+  </div>
+</button>
+}

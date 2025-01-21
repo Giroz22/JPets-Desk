@@ -1,0 +1,9 @@
+@import "../../../../styles/variables";
+
+button {
+  background-color: $primary-color;
+}
+
+button:hover {
+  background-color: lighten($primary-color, 10%);
+}

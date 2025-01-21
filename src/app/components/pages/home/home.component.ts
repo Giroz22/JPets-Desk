@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
+import { ScrollTableComponent } from "../../organisms/scroll-table/scroll-table.component";
 
 @Component({
   selector: "app-home",
-  imports: [],
+  imports: [ScrollTableComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
 })

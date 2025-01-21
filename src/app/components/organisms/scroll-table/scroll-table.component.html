@@ -1,0 +1,11 @@
+@if (data == undefined || data.length < 0) {
+<div class="alert alert-warning" role="alert">No se encontraron datos</div>
+}@else {
+<div class="table-data">
+  @for (item of data; track $index) { @switch (typeData) { @case ("pets") {
+  <app-row-data-pet [pet]="item" />
+  } @default {
+  <app-row-data [data]="item" />
+  } } }
+</div>
+}
