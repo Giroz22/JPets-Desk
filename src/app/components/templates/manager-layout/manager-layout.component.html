@@ -1,9 +1,17 @@
 <div class="manager">
-  <div class="manager-info">Info page</div>
+  <div class="manager-info">
+    <ng-content select="[manager-info]"></ng-content>
+  </div>
   <div class="manager-data">
     <div class="manager-table">
-      <app-scroll-table [data]="data" [typeData]="typeData" />
+      <app-scroll-table>
+        <div items>
+          <ng-content select="[scroll-table-items]"></ng-content>
+        </div>
+      </app-scroll-table>
     </div>
-    <div class="manager-detail">Manager data</div>
+    <div class="manager-detail">
+      <ng-content select="[manager-detail]"></ng-content>
+    </div>
   </div>
 </div>

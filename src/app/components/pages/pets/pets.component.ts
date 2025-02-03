@@ -1,15 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { PetsState } from "../../../features/feature-pets/state/reducers/pets.reducer";
+import {
+  ActionPet,
+  PetsState,
+} from "../../../features/feature-pets/state/reducers/pets.reducer";
 import { PetResponse } from "../../../../electron/models/dtos/pet.response";
 import { ManagerLayoutComponent } from "../../templates/manager-layout/manager-layout.component";
-import { getAll } from "../../../features/feature-pets/state/actions/pets.actions";
+import {
+  getAll,
+  setPetId,
+} from "../../../features/feature-pets/state/actions/pets.actions";
 import { TypeDataScrollTable } from "../../organisms/scroll-table/scroll-table.component";
+import { RowDataComponent } from "../../molecules/row-data/row-data.component";
 
 @Component({
   selector: "app-pets",
-  imports: [ManagerLayoutComponent],
+  imports: [ManagerLayoutComponent, RowDataComponent],
   templateUrl: "./pets.component.html",
   styleUrl: "./pets.component.scss",
 })
@@ -30,5 +37,10 @@ export class PetsComponent implements OnInit {
       this.pets = petsState.pets;
       this.petSelected = petsState.petSelected.pet;
     });
+  }
+
+  setPetSelected(petId: number) {
+    return () =>
+      this.store.dispatch(setPetId({ petId, action: ActionPet.EDIT }));
   }
 }
