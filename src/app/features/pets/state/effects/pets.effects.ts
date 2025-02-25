@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { PetsService } from "../../services/pets.service";
-import { concatMap, exhaustMap, map, mergeMap } from "rxjs";
+import { concatMap, exhaustMap, map } from "rxjs";
 import {
-  changePetSelected,
   createPet,
   createPetAction,
   deletePet,
@@ -11,13 +10,16 @@ import {
   getAllPagination,
   setAll,
   setPagination,
-  setPetId,
+  getPetById,
   setTotalPage,
   updatePet,
   updatePetAction,
 } from "../actions/pets.actions";
 import Swal from "sweetalert2";
-import { mapWithArguments } from "@automapper/core";
+import {
+  changeActionForm,
+  setDataForm,
+} from "../../../../shared/state/actions/form.actions";
 
 @Injectable()
 export class PetsEffect {
@@ -61,15 +63,11 @@ export class PetsEffect {
 
     this.changePetSelected$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(setPetId),
+        ofType(getPetById),
         exhaustMap((props) =>
-          this.service.getById(props.petId).pipe(
-            map((pet) =>
-              changePetSelected({
-                newPetSelected: { pet, action: props.action },
-              })
-            )
-          )
+          this.service
+            .getById(props.petId)
+            .pipe(map((pet) => setDataForm({ data: pet })))
         )
       )
     );

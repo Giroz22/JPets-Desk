@@ -7,12 +7,14 @@ import { provideEffects } from "@ngrx/effects";
 import { PetsEffect } from "./features/pets/state/effects/pets.effects";
 import { petsRoutes } from "./features/pets/pets.routes";
 import { homeRoutes } from "./features/home/home.routes";
+import { formReducer } from "./shared/state/reducers/form.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter([...routes, ...homeRoutes, ...petsRoutes]),
     provideStore({
+      FormState: formReducer,
       petsState: petsReducer,
     }),
     provideEffects(PetsEffect),

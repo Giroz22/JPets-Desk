@@ -1,6 +1,5 @@
 import { createAction, props } from "@ngrx/store";
 import { PetsResponse } from "../models/pet.response";
-import { ActionPet, PetSelected } from "../reducers/pets.reducer";
 import { PetRequest } from "../models/pet.request";
 import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
 
@@ -8,21 +7,10 @@ export const setAll = createAction(
   "[Pet Component] setPets",
   props<{ newPets: PetsResponse[] }>()
 );
-export const changePetSelected = createAction(
-  "[Pet component] changePetSelected",
-  props<{ newPetSelected: PetSelected }>()
-);
-export const setPetId = createAction(
-  "[Pet component] setPetId",
-  props<{ petId: number; action: ActionPet }>()
-);
-export const clearPetSelected = createAction(
-  "[Pet component] cleanPetSelected"
-);
 
-export const changeActionPet = createAction(
-  "[Pet component] changeActionPet",
-  props<{ action: ActionPet }>()
+export const getPetById = createAction(
+  "[Pet component] setPetId",
+  props<{ petId: number }>()
 );
 
 export const getAll = createAction("[Pet component] getAll");

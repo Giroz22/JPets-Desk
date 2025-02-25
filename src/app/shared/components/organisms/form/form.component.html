@@ -1,0 +1,30 @@
+<form (ngSubmit)="submit()" class="form-pet">
+  <fieldset
+    [disabled]="actionForm !== 'EDIT' ? '' : 'disabled'"
+    class="info-pet"
+  >
+    <ng-content select="[inputs]"></ng-content>
+  </fieldset>
+  @switch (actionForm) { @case ("CREATE") {
+  <div class="actions">
+    <button class="btn btn-success" type="submit">Crear</button>
+  </div>
+
+  } @case ("EDIT") {
+  <div class="actions">
+    <button class="btn btn-primary" (click)="update()" type="button">
+      Editar
+    </button>
+    <button class="btn btn-danger" (click)="delete()" type="button">
+      Eliminar
+    </button>
+  </div>
+  } @case ("UPDATE") {
+  <div class="actions">
+    <button class="btn btn-success" type="submit">Actualizar</button>
+    <button class="btn btn-secondary" (click)="setActionEdit()" type="button">
+      Cancelar
+    </button>
+  </div>
+  } }
+</form>

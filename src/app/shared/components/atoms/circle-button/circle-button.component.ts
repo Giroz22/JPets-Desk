@@ -7,5 +7,5 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./circle-button.component.scss",
 })
 export class CircleButtonComponent {
-  @Input() action!: Function;
+  @Input() action: Function = () => {};
 }

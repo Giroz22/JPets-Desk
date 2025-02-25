@@ -20,9 +20,9 @@ export enum Sizes {
   styleUrl: "./avatar.component.scss",
 })
 export class AvatarComponent implements OnInit, OnChanges {
-  @Input() src!: string;
-  @Input() alt!: string;
-  @Input() size!: string | Sizes;
+  @Input() src: string | undefined | null = "imgs/ImgExample.png";
+  @Input() alt: string = "Imagen de ejemplo";
+  @Input() size: string | Sizes = Sizes.md;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes["src"]) this.src = this.src || "imgs/ImgExample.png";

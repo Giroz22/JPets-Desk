@@ -3,6 +3,8 @@
   <div class="info-detail">
     <ng-content select="[first-column]"></ng-content>
     <ng-content select="[second-column]"></ng-content>
-    <app-circle-button [action]="action" />
+    <app-circle-button [action]="action">
+      <i icon class="bi bi-chevron-right"></i>
+    </app-circle-button>
   </div>
 </button>

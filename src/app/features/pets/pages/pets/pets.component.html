@@ -1,5 +1,4 @@
 <app-manager-layout>
-  <div manager-info>Pet Manager</div>
   <div scroll-table-items>
     @for (pet of pets; track $index) {
     <app-row-data [action]="setPetSelected(pet.id)"
@@ -13,5 +12,8 @@
     </app-row-data>
     }
   </div>
-  <app-manager-pet manager-detail />
+  <div manager-detail class="manager-info">
+    <app-pet-form />
+    <div class="more-info border-rounded">more info</div>
+  </div>
 </app-manager-layout>

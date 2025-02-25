@@ -1,32 +1,30 @@
 @import "../../../../../../styles/variables";
 
 .form-pet {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding-block: 1rem;
-  background-color: $background-color;
   border-radius: $radius;
 
-  .img {
-    height: 30%;
-  }
-  .info-pet {
-    height: 60%;
+  gap: 30px;
+
+  .input-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: $separation;
-  }
-  .actions {
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: $separation;
+
+    gap: 15px;
+
+    .inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 }

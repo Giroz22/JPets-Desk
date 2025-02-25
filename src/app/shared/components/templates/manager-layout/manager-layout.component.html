@@ -1,6 +1,12 @@
 <div class="manager">
-  <div class="manager-info">
-    <ng-content select="[manager-info]"></ng-content>
+  <div class="manager-info border-rounded">
+    <app-search></app-search>
+    <button
+      class="btn btn-success"
+      (click)="changeActionForm(Actionform.CREATE)"
+    >
+      Agregar
+    </button>
   </div>
   <div class="manager-data">
     <div class="manager-table">
@@ -11,7 +17,15 @@
       </app-scroll-table>
     </div>
     <div class="manager-detail">
+      @if(Actionform.HIDDEN !== actionForm) {
+      <app-circle-button
+        class="btn"
+        (click)="changeActionForm(Actionform.HIDDEN)"
+      >
+        <i icon class="bi bi-x-lg"></i>
+      </app-circle-button>
       <ng-content select="[manager-detail]"></ng-content>
+      }
     </div>
   </div>
 </div>

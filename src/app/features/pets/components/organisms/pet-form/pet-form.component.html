@@ -1,184 +1,55 @@
-<form (ngSubmit)="submit()" class="form-pet">
-  <div class="img">
-    <app-avatar
-      [src]="petSelected.pet.image"
-      [alt]="'Imagen de ' + petForm.name"
-      [size]="'lg'"
-    />
-  </div>
+<form (ngSubmit)="submit()" class="form-pet border-rounded">
   <fieldset
-    [disabled]="petSelected.action !== 'EDIT' ? '' : 'disabled'"
-    class="info-pet"
+    [disabled]="actionForm !== 'EDIT' ? '' : 'disabled'"
+    class="input-container"
   >
-    <div class="">
-      <label for="txt-name-pet">Mascota</label>
-      <input
-        [(ngModel)]="petForm.name"
-        name="name"
-        type="text"
-        class="form-control"
-        id="txt-name-pet"
-        required
+    <div class="img-input">
+      <app-avatar
+        [src]="petForm.image"
+        [alt]="'Imagen de ' + petForm.name"
+        [size]="'lg'"
       />
     </div>
-    <div class="">
-      <label for="txt-ownerName">Dueño</label>
-      <input
-        [(ngModel)]="petForm.ownerName"
-        name="ownerName"
-        type="text"
-        class="form-control"
-        id="txt-ownerName"
-        required
-      />
-    </div>
-    <div class="">
-      <label for="txt-tel">Telefono</label>
-      <input
-        [(ngModel)]="petForm.tel"
-        name="tel"
-        type="tel"
-        class="form-control"
-        id="txt-tel"
-        required
-      />
-    </div>
-  </fieldset>
-  @switch (petSelected.action) { @case ("CREATE") {
-  <div class="actions">
-    <button class="btn btn-success" type="submit">Crear</button>
-  </div>
-
-  } @case ("EDIT") {
-  <div class="actions">
-    <button class="btn btn-primary" (click)="setActionUpdate()" type="button">
-      Editar
-    </button>
-    <button class="btn btn-danger" (click)="delete()" type="button">
-      Eliminar
-    </button>
-  </div>
-  } @case ("UPDATE") {
-  <div class="actions">
-    <button class="btn btn-success" type="submit">Actualizar</button>
-    <button class="btn btn-secondary" (click)="setActionEdit()" type="button">
-      Cancelar
-    </button>
-  </div>
-  } }
-</form>
-<!-- 
-<div class="row">
-  <div class="col-4">
-    <fieldset
-      [disabled]="petSelected.action !== 'EDIT' ? '' : 'disabled'"
-      class="row"
-    >
-      <div class="mb-3">
-        <label
-          for="inputImg"
-          class="rounded-4 overflow-hidden border border-2 position-relative"
-          style="height: 15rem; width: 15rem"
-        >
-          <i
-            class="bi bi-camera-fill position-absolute top-50 start-50 translate-middle fs-3"
-            [style]="
-              petSelected.action == 'UPDATE' ? 'opacity: 100%' : 'display:none;'
-            "
-          ></i>
-          <img
-            class="w-100 h-100 object-fit-cover"
-            [style]="
-              petSelected.action == 'UPDATE'
-                ? 'cursor: pointer; opacity: 75%'
-                : ''
-            "
-            [src]="petForm.image == '' ? 'imgs/ImgExample.png' : petForm.image"
-            [alt]="'Imagen de ' + petForm.name"
-          />
-        </label>
-        <input
-          type="file"
-          style="display: none"
-          accept="image/*"
-          (change)="onFileChange($event)"
-          name="image"
-          id="inputImg"
-        />
-      </div>
-    </fieldset>
-    <div class="row">
-      @switch (petSelected.action) { @case ("CREATE") {
-      <button class="btn btn-success" type="submit">Crear</button>
-      } @case ("EDIT") {
-      <div>
-        <button
-          class="btn btn-primary"
-          (click)="setActionUpdate()"
-          type="button"
-        >
-          Editar
-        </button>
-        <button class="btn btn-danger" (click)="delete()" type="button">
-          Eliminar
-        </button>
-
-        <button class="btn btn-secondary" (click)="backHome()">Cerrar</button>
-      </div>
-      } @case ("UPDATE") {
-      <div>
-        <button class="btn btn-success" type="submit">Actualizar</button>
-        <button
-          class="btn btn-secondary"
-          (click)="setActionEdit()"
-          type="button"
-        >
-          Cancelar
-        </button>
-      </div>
-      } }
-    </div>
-  </div>
-
-  <div class="col">
-    <legend class="fw-bold">Informacion de {{ petSelected.pet.name }}</legend>
-    <fieldset
-      [disabled]="petSelected.action !== 'EDIT' ? '' : 'disabled'"
-      class="row"
-    >
-      <div class="col-6 mb-3">
-        <label for="formGroupExampleInput" class="form-label">Mascota</label>
+    <div class="inputs">
+      <div class="">
+        <label for="txt-name-pet">Mascota</label>
         <input
           [(ngModel)]="petForm.name"
+          (ngModelChange)="setName($event)"
           name="name"
           type="text"
           class="form-control"
-          id="formGroupExampleInput"
+          id="txt-name-pet"
           required
         />
       </div>
-      <div class="col-6 mb-3">
-        <label for="formGroupExampleInput" class="form-label">Dueño</label>
+      <div class="">
+        <label for="txt-ownerName">Dueño</label>
         <input
           [(ngModel)]="petForm.ownerName"
           name="ownerName"
           type="text"
           class="form-control"
-          id="formGroupExampleInput"
+          id="txt-ownerName"
           required
         />
       </div>
-      <div class="col-6 mb-3">
-        <label for="formGroupExampleInput" class="form-label">Telefono</label>
+      <div class="">
+        <label for="txt-tel">Telefono</label>
         <input
           [(ngModel)]="petForm.tel"
           name="tel"
           type="tel"
           class="form-control"
-          id="formGroupExampleInput"
+          id="txt-tel"
           required
         />
       </div>
-    </fieldset>
-  </div>
-</div> -->
+    </div>
+  </fieldset>
+  <app-buttons-action-form
+    [submit]="submit"
+    [update]="setActionUpdate"
+    [delete]="delete"
+  />
+</form>

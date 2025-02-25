@@ -1,0 +1,16 @@
+@import "../../../../../styles/variables";
+
+.manager-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: $separation;
+
+  .more-info {
+    flex: 1;
+  }
+  app-pet-form {
+    width: 40%;
+  }
+}

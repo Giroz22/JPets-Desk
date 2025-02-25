@@ -3,25 +3,32 @@
 .manager {
   width: 100%;
   height: 94vh;
+  padding: $separation;
 
   display: flex;
   flex-direction: column;
+  gap: $separation;
 
   .manager-info {
     width: 100%;
-    min-height: 30%;
+    max-height: 10%;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: $separation;
+    padding: $separation;
+
+    :first-child {
+      flex: 1;
+    }
   }
   .manager-data {
     height: 100%;
     flex: 1;
 
-    border: solid 2px $border-color;
-    border-radius: $radius;
-    overflow: hidden;
-
     display: flex;
     gap: $separation;
-    padding: $separation;
 
     .manager-table {
       width: 30%;
@@ -38,6 +45,13 @@
       border-radius: 15px;
       overflow: hidden;
       padding: $separation;
+
+      position: relative;
+
+      .btn {
+        position: absolute;
+        right: 0;
+      }
     }
   }
 }

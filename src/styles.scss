@@ -1,2 +1,11 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "bootstrap/scss/bootstrap";
+
+@import "./styles/variables";
+
+.border-rounded {
+  border: solid 2px $border-color;
+  border-radius: $radius;
+  overflow: hidden;
+  padding: 20px;
+}
