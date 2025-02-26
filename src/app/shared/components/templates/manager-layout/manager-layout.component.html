@@ -10,12 +10,9 @@
   </div>
   <div class="manager-data">
     <div class="manager-table">
-      <app-scroll-table>
-        <div items>
-          <ng-content select="[scroll-table-items]"></ng-content>
-        </div>
-      </app-scroll-table>
+      <ng-content select="[scroll-table-items]"></ng-content>
     </div>
+
     <div class="manager-detail">
       @if(Actionform.HIDDEN !== actionForm) {
       <app-circle-button

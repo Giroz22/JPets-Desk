@@ -1,16 +1,18 @@
 <app-manager-layout>
   <div scroll-table-items>
-    @for (pet of pets; track $index) {
-    <app-row-data [action]="setPetSelected(pet.id)"
-      ><div first-column>
-        <span>{{ pet.name }}</span
-        ><span>{{ pet.ownerName }}</span>
-      </div>
-      <div second-column>
-        {{ pet.tel }}
-      </div>
-    </app-row-data>
-    }
+    <app-table-data>
+      @for (pet of pets; track $index) {
+      <app-row-data items [action]="setPetSelected(pet.id)"
+        ><div first-column>
+          <span>{{ pet.name }}</span
+          ><span>{{ pet.ownerName }}</span>
+        </div>
+        <div second-column>
+          {{ pet.tel }}
+        </div>
+      </app-row-data>
+      }
+    </app-table-data>
   </div>
   <div manager-detail class="manager-info">
     <app-pet-form />

@@ -7,21 +7,25 @@ import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
 import { getAll, getPetById } from "../../state/actions/pets.actions";
 import { ManagerLayoutComponent } from "../../../../shared/components/templates/manager-layout/manager-layout.component";
 import { RowDataComponent } from "../../../../shared/components/molecules/row-data/row-data.component";
-import { TypeDataScrollTable } from "../../../../shared/components/organisms/scroll-table/scroll-table.component";
 import { FormState } from "../../../../shared/state/reducers/form.reducer";
 import { ActionForm } from "../../../../shared/models/ActionsForm";
 import { PetFormComponent } from "../../components/organisms/pet-form/pet-form.component";
 import { changeActionForm } from "../../../../shared/state/actions/form.actions";
+import { TableDataComponent } from "../../../../shared/components/organisms/table-data/table-data.component";
 
 @Component({
   selector: "app-pets",
-  imports: [ManagerLayoutComponent, RowDataComponent, PetFormComponent],
+  imports: [
+    ManagerLayoutComponent,
+    RowDataComponent,
+    PetFormComponent,
+    TableDataComponent,
+  ],
   templateUrl: "./pets.component.html",
   styleUrl: "./pets.component.scss",
 })
 export class PetsComponent implements OnInit {
   pets!: PetResponse[];
-  type: TypeDataScrollTable = TypeDataScrollTable.PETS;
 
   ngOnInit(): void {
     this.store.dispatch(getAll());
