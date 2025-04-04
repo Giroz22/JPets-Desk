@@ -1,1 +1,39 @@
-<p>search works!</p>
+<div class="search-container">
+  <input
+    type="text"
+    name="txt-search"
+    id=""
+    class="search"
+    placeholder="Buscar"
+  />
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <i class="bi bi-sliders pe-2"></i>Filtrar
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Mascota</a></li>
+      <li><a class="dropdown-item" href="#">Dueño</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <i class="bi bi-arrow-down-up pe-2"></i>
+      Ordenar por
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Ascendente</a></li>
+      <li><a class="dropdown-item" href="#">Descendente</a></li>
+    </ul>
+  </div>
+</div>
