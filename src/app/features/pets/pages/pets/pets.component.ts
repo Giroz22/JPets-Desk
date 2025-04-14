@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { PetsState } from "../../state/reducers/pets.reducer";
-import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
+import { PetResponse } from "../../../../../../electron/ipc/dtos/pet.response";
 
 import { getAll, getPetById } from "../../state/actions/pets.actions";
 import { ManagerLayoutComponent } from "../../../../shared/components/templates/manager-layout/manager-layout.component";

@@ -17,9 +17,13 @@
     "target": "ES2022",
     "module": "ES2022",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "./",
     "emitDecoratorMetadata": true
   },
+  "include": [
+    "src/**/*.ts",
+    "electron/**/*.ts" // Incluye los archivos TypeScript de Electron
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

@@ -1,14 +1,14 @@
 import "reflect-metadata";
 import { DataSource, Repository } from "typeorm";
-import { StoreEntity } from "../models/store.entity";
-import { PetEntity } from "../models/pet.entity";
+import { StoreEntity } from "../domain/entities/store.entity";
+import { PetEntity } from "../domain/entities/pet.entity";
 
 let appDataSource: DataSource;
 
 export function openConnection() {
   appDataSource = new DataSource({
     type: "sqlite",
-    database: "src/electron/database/jpets.sql",
+    database: "./DB/jpetsDB.sql",
     entities: [StoreEntity, PetEntity],
     synchronize: true,
   });

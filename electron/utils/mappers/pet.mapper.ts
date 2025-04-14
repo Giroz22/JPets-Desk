@@ -1,8 +1,8 @@
 import { createMap } from "@automapper/core";
-import { PetEntity } from "../../models/pet.entity";
+import { PetEntity } from "../../domain/entities/pet.entity";
 import { mapperConfig } from "../../config/mapperConfig";
-import { PetResponse } from "../../models/dtos/pet.response";
-import { PetRequest } from "../../models/dtos/pet.request";
+import { PetResponse } from "../../ipc/dtos/pet.response";
+import { PetRequest } from "../../ipc/dtos/pet.request";
 
 export class PetMapper {
   constructor() {

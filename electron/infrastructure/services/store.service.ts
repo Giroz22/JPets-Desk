@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
-import { StoreEntity } from "../models/store.entity";
-import { getRepository } from "../config/DataSourceConnection";
+import { StoreEntity } from "../../domain/entities/store.entity";
+import { getRepository } from "../../config/DataSourceConnection";
 
 export class StoreService {
   static async getStore() {

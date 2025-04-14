@@ -1,5 +1,5 @@
 import { ipcMain } from "electron";
-import { PetsService } from "../services/pet.service";
+import { PetsService } from "../../infrastructure/services/pet.service";
 
 const service: PetsService = new PetsService();
 

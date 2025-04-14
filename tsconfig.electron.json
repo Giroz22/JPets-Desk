@@ -4,13 +4,13 @@
     "target": "ES2022",
     "module": "commonjs",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/electron.ts", "src/preload.ts"],
+  "include": ["./electron/electron.ts", "./electron/preload.ts"],
   "exclude": ["node_modules"]
 }

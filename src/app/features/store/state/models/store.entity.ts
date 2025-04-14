@@ -1,4 +1,4 @@
-import { PetEntity } from "../../../../../electron/models/pet.entity";
+import { PetEntity } from "../../../../../../electron/domain/models/pet.entity";
 
 export class StoreEntity {
   id!: number;

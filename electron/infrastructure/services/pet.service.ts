@@ -1,13 +1,12 @@
 import { Repository } from "typeorm";
-import { PetEntity } from "../models/pet.entity";
-import { getRepository } from "../config/DataSourceConnection";
-import { PetMapper } from "../utils/mappers/pet.mapper";
-import { errorAlert } from "../utils/alerts";
+import { PetEntity } from "../../domain/entities/pet.entity";
+import { getRepository } from "../../config/DataSourceConnection";
+import { PetMapper } from "../../utils/mappers/pet.mapper";
+import { errorAlert } from "../../utils/alerts";
 import { StoreService } from "./store.service";
-import { PetResponse } from "../models/dtos/pet.response";
-import { PetRequest } from "../models/dtos/pet.request";
-import { Pagination } from "../models/pagination";
-import { Utils } from "../utils/utils";
+import { PetResponse } from "../../ipc/dtos/pet.response";
+import { PetRequest } from "../../ipc/dtos/pet.request";
+import { Pagination } from "../../domain/models/pagination";
 
 export class PetsService {
   repository: Repository<PetEntity> = getRepository(PetEntity);

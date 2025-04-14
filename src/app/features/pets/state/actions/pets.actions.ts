@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { PetsResponse } from "../models/pet.response";
 import { PetRequest } from "../models/pet.request";
-import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
+import { PetResponse } from "../../../../../../electron/ipc/dtos/pet.response";
 
 export const setAll = createAction(
   "[Pet Component] setPets",

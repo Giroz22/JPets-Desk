@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "electron": "electron dist/main.js",
-    "dev": "npx tsc -p tsconfig.electron.json && electron dist/electron.js",
+    "electron": "npx tsc -p tsconfig.electron.json && electron ./dist/electron/electron.js",
     "postinstall": "ng build --base-href ./ && tsc"
   },
   "private": true,

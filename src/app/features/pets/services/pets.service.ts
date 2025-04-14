@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { PetsResponse } from "../state/models/pet.response";
 import { PetRequest } from "../state/models/pet.request";
 import { from, Observable } from "rxjs";
-import { PetResponse } from "../../../../electron/models/dtos/pet.response";
+import { PetResponse } from "../../../../../electron/ipc/dtos/pet.response";
 import { Pagination } from "../../../shared/models/pagination";
 
 @Injectable({

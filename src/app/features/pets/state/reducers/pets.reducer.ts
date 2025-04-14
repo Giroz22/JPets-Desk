@@ -8,7 +8,7 @@ import {
   setPagination,
   setTotalPage,
 } from "../actions/pets.actions";
-import { PetResponse } from "../../../../../electron/models/dtos/pet.response";
+import { PetResponse } from "../../../../../../electron/ipc/dtos/pet.response";
 import { ActionForm } from "../../../../shared/models/ActionsForm";
 
 export interface PetsState {

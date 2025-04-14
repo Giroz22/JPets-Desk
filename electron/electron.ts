@@ -1,11 +1,8 @@
 import { app, BrowserWindow } from "electron";
 import path from "node:path";
 
-import {
-  closeConnection,
-  openConnection,
-} from "./electron/config/DataSourceConnection";
-import { registerHandlers } from "./electron/controller/handlers.controller";
+import { closeConnection, openConnection } from "./config/DataSourceConnection";
+import { importHandlers } from "./ipc/ipcHandlers";
 
 app.disableHardwareAcceleration();
 
@@ -26,7 +23,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
   openConnection();
-  registerHandlers();
+  importHandlers();
   createWindow();
 });
 
